@@ -27,11 +27,15 @@ def vm(opt)
       if os_type == :windows
         mod.vm.guest = :windows
         mod.vm.communicator = 'winrm'
-        mod.vm.synced_folder './' , "/ProgramData/PuppetLabs/puppet/etc/modules/#{module_name}"
-        mod.vm.synced_folder 'spec/fixtures/modules' , '/temp/modules'
+        mod.vm.synced_folder './' , "/ProgramData/PuppetLabs/puppet/etc/modules/#{module_name}",
+                             followSymlinks: "TRUE"
+        mod.vm.synced_folder 'spec/fixtures/modules' , '/temp/modules',
+                             followSymlinks: "TRUE"
       else
-        mod.vm.synced_folder './', "/etc/puppet/modules/#{module_name}"
-        mod.vm.synced_folder 'spec/fixtures/modules', '/tmp/puppet/modules'
+        mod.vm.synced_folder './', "/etc/puppet/modules/#{module_name}",
+                             followSymlinks: "TRUE"
+        mod.vm.synced_folder 'spec/fixtures/modules', '/tmp/puppet/modules',
+                             followSymlinks: "TRUE"
       end
 
       mod.vm.hostname = hostname
