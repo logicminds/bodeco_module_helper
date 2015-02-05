@@ -1,4 +1,5 @@
 require 'puppetlabs_spec_helper/rake_tasks'
+require_relative 'merge_request'
 
 def io_popen(command)
   IO.popen(command) do |io|
@@ -91,4 +92,11 @@ task :vagrant_destroy do
   Rake::Task['spec_prep'].execute
   `vagrant destroy -f`
   Rake::Task['spec_clean'].execute
+end
+
+namespace 'gitlab' do
+  desc 'Create a new gitlab merge request'
+  task :create_mr do
+    MergeRequest.create_mr
+  end
 end

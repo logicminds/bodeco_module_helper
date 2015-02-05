@@ -1,0 +1,1 @@
+require 'bodeco_module_helper/vagrant'

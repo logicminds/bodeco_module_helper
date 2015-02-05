@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name = 'bodeco_module_helper'
   s.version = '0.1.0'
 
-  s.authors     = ['Nan Liu', 'Dan Bode']
+  s.authors     = ['Nan Liu', 'Dan Bode', 'Corey Osman']
   s.email       = 'info@bodeco.io'
   s.homepage    = 'http://github.com/bodeco/bodeco_module_helper'
   s.summary     = 'Bodeco Puppet module helper.'
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   end
 
   s.add_runtime_dependency 'r10k'
+  s.add_runtime_dependency 'git'
   s.add_runtime_dependency 'rspec'
   s.add_runtime_dependency 'puppetlabs_spec_helper', '~> 0.8'
   s.add_runtime_dependency 'puppet-blacksmith'
